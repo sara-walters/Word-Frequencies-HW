@@ -1,4 +1,4 @@
-# html-to-freq-2.py
+# word counter
 
 import urllib.request, urllib.error, urllib.parse, json
 import obo
@@ -12,12 +12,6 @@ html = record['hits']['hits'][0]['_source']['html']
 text = obo.stripTags(html).lower()
 fullwordlist = obo.stripNonAlphaNum(text)
 wordlist = obo.removeStopwords(fullwordlist, obo.stopwords)
-dictionary = obo.wordListToFreqDict(wordlist)
-sorteddict = obo.sortFreqDict(dictionary)
-
-for s in sorteddict: print(str(s))
-
-# word counter
 
 from collections import Counter
 
